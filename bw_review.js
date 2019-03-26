@@ -77,8 +77,24 @@ function turnOffStars(e) {
             document.getElementById("rating").value = "";
       }
 }
+// Creates a function that will continuely update the character count at the bottom right corner of the text box
+function updateCount() {
+      var commentText = document.getElementById("comment").value;
+      // Creates a new variable using a function as its value with the parameters of the commentText variable
+      var charCount = countCharacters(commentText);
 
-
+      var wordCountBox = document.getElementById("wordCount");
+      // The variable will be update the visible at the bottom of the page so as you type it changes to match how many characters have been typed
+      wordCountBox.value = charCount + "/1000";
+      // Changes the input box if 1000 chars are exceeded so that its a red backround and the font is white
+      if (charCount > 1000) {
+            wordCountBox.style.backgroundColor = "red";
+            wordCountBox.style.color = "white";
+      } else {
+            wordCountBox.style.backgroundColor = "black";
+            wordCountBox.style.color = "white";
+      }
+};
 
 
 /*=================================================================*/
